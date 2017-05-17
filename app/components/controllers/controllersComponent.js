@@ -7,5 +7,13 @@
 
   function ControllersController () {
     this.controllersStatus = 'Working'
+    this.friends = [];
+    this.newFriend = '';
+    this.addFriend = function() {
+      debugger
+      console.log('hit add friend')
+      this.friends.push(this.newFriend);
+      this.newFriend = '';
+    }
   }
 }())

@@ -8,5 +8,6 @@
   function BindingsController () {
     this.bindingsStatus = 'Working'
     this.name = 'Please enter your Name'
+    this.testing = ''
   }
 }())

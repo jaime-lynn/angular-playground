@@ -19,7 +19,16 @@
     this.name = 'My BɼokƏn Cart!'
 
     this.getCartCount = function () {
-      // return the length of our cart
+      return this.cart.length;
+    }
+
+    this.calculateCartTotal = function(){
+      let total = 0;
+      for(var i = 0; i < this.cart.length; i++){
+        let item = this.cart[i];
+        total += item.price * item.quantity;
+      }
+      return total;
     }
 
     /*
@@ -31,6 +40,8 @@
 
 
     this.removeItemFromCart = function (item) {
+      let index = this.cart.indexOf(item);
+      this.cart.splice(index, 1);
       // Item gets passed in from our view when the user clicks the x button
 
       /*
@@ -43,7 +54,15 @@
 
     this.addItemToCart = function (item) {
       // item gets passed in to this function from the view
-
+      console.log(item);
+      var newItem = {
+        name: item.name,
+        color: item.selectedColor,
+        size: item.selectedSize,
+        quantity: 1,
+        price: item.price
+      }
+      this.cart.push(newItem);
       /*
       *Our cart demands that items being added to it must have the following properties
       *var newItem = {
